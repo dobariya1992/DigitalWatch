@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    background:linear-gradient(45deg , #160127 ,#22119977);
+    position: relative;
+    
+}
+.container{
+    position: absolute;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    height: 140px;
+    transform: translate(-50% , -50%);
+}
+.clock{
+    width: 100%;
+    height: 100%;
+    background: rgba(156, 148, 156, 0.11);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    backdrop-filter: blur(40px);
+    color: white;
+
+}
+.container::after{
+    content: '';
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background: #f41b75;
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+    z-index: -1;
+}
+.container::before{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: -50px;
+    top: -50px;
+    background: skyblue;
+    content: '';
+    z-index: -1; 
+}
+.clock span{
+    font-size: 70px;
+    position: relative;
+    width: 80px;
+    display: inline-block;
+}
+.clock span::after{
+    font-size: 12px;
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 10%;
+}
+#hrs::after{
+    content: 'HOURS';
+}
+#min::after{
+    content: 'MINUTES';
+}
+#sec::after{
+    content: 'SECONDS';
+}
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        height: 120px;
+    }
+
+    .clock span {
+        font-size: 50px; /* Decrease font size on smaller screens */
+    }
+
+    #hrs::after, #min::after, #sec::after {
+        font-size: 10px;
+    }
+}
+
+/* Responsive Design - Small Mobile */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        height: 100px;
+    }
+
+    .clock span {
+        font-size: 40px; /* Further decrease font size */
+    }
+
+    #hrs::after, #min::after, #sec::after {
+        font-size: 8px;
+    }
+
+    .container::after, .container::before {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Responsive Design - Large Screens */
+@media (min-width: 1200px) {
+    .container {
+        width: 500px; /* Ensure max-width is maintained on large screens */
+    }
+
+    .clock span {
+        font-size: 80px;
+    }
+}
